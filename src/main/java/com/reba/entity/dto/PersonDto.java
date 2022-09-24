@@ -7,20 +7,20 @@ import lombok.Setter;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 @Builder
 public class PersonDto {
-    @NotBlank(message = "Debe completar el nombre")
+    @NotNull(message = "Debe completar el nombre")
     private String name;
-    @NotBlank(message = "Debe completar el apellido")
+    @NotNull(message = "Debe completar el apellido")
     private String lastname;
-    @NotBlank(message = "Debe completar la edad")
+    @NotNull(message = "Debe ingresar la edad")
     @Min(18)
     private Integer age;
     private String nationality;
-    @Email(message = "Debe ingresar un email con formato valido")
     private String email;
     private String telephoneNumber;
     @NotBlank(message = "Debe completar el dni")

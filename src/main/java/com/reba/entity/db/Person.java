@@ -1,7 +1,7 @@
 package com.reba.entity.db;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 import javax.validation.constraints.Min;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +10,9 @@ import java.util.Map;
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
