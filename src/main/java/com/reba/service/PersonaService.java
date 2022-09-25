@@ -1,5 +1,6 @@
 package com.reba.service;
 
+import com.reba.entity.RelationEnum;
 import com.reba.entity.db.Person;
 import com.reba.entity.db.Relation;
 import com.reba.entity.dto.PersonDto;
@@ -108,6 +109,21 @@ public class PersonaService {
             throw new ApiCustomException("La persona con el DNI ingresado no existe.");
         }else{
             personRepository.delete(person);
+        }
+    }
+
+    public Boolean isFather(String dni1, String dni2) {
+        Person p1 = personRepository.findPersonByDni(dni1);
+        Person p2 = personRepository.findPersonByDni(dni2);
+        if(p1 == null || p2 == null){
+            throw new ApiCustomException("Ambos o algun DNI ingresado es incorrecto.");
+        }
+
+        // primero se fija si existe una relacion previa Y si esa relacion es la de PADRE
+        if(p1.getRelation().get(p2) != null && p1.getRelation().get(p2).getRelation() == RelationEnum.PADRE){
+            return true;
+        }else{
+            return false;
         }
     }
 }

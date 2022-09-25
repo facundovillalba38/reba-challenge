@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/personas")
 public class PersonController {
 
     @Autowired
@@ -39,5 +39,10 @@ public class PersonController {
     private ResponseEntity deletePersona(@PathVariable("dni") String dni){
         personaService.deletePersona(dni);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/{dni1}/padre/{dni2}")
+    private ResponseEntity<Boolean> isFather(@PathVariable("dni1")String dni1, @PathVariable("dni2")String dni2){
+        return new ResponseEntity<>(personaService.isFather(dni1, dni2), HttpStatus.OK);
     }
 }
