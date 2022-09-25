@@ -1,6 +1,7 @@
 package com.reba.controller;
 
 import com.reba.entity.dto.PersonDto;
+import com.reba.entity.dto.PersonRelationDto;
 import com.reba.entity.dto.PersonUpdateDto;
 import com.reba.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;

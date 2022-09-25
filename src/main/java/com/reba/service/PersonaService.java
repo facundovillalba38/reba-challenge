@@ -1,23 +1,31 @@
 package com.reba.service;
 
 import com.reba.entity.db.Person;
+import com.reba.entity.db.Relation;
 import com.reba.entity.dto.PersonDto;
+import com.reba.entity.dto.PersonRelationDto;
 import com.reba.entity.dto.PersonUpdateDto;
 import com.reba.exception.ApiCustomException;
 import com.reba.repository.PersonRepository;
+import com.reba.repository.RelationRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class PersonaService {
 
     private PersonRepository personRepository;
+    private RelationRepository relationRepository;
     private ModelMapper mapper;
 
     @Autowired
-    public PersonaService(PersonRepository personRepository, ModelMapper mapper){
+    public PersonaService(PersonRepository personRepository, RelationRepository relationRepository, ModelMapper mapper){
         this.personRepository = personRepository;
+        this.relationRepository = relationRepository;
         this.mapper = mapper;
     }
 
