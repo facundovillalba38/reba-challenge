@@ -63,9 +63,10 @@ public class RelationService {
         String relation="";
         if(checkPreviousRelation(p1,p2)){
             relation = p1.getRelation().get(p2).getRelation().name();
-        }
-        if(checkPreviousRelation(p2,p1)){
+        }else if(checkPreviousRelation(p2,p1)){
             relation = p2.getRelation().get(p1).getRelation().name();
+        }else {
+            relation = "No existe relacion entre las personas consultadas";
         }
 
         return relation;
