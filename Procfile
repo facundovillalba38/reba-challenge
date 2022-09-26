@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/reba-challenge.jar
+web: java -Dspring.profiles.active=reba -Dserver.port=$PORT -jar target/*.jar
