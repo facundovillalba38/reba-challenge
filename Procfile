@@ -1,1 +1,0 @@
-web: java -jar target/reba-challenge.jar

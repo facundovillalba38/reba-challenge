@@ -24,7 +24,6 @@ public class StatsController {
 
     @GetMapping
     public ResponseEntity<List<Stats>> getStats(){
-        // comment
         return new ResponseEntity<>(statsService.getStats(), HttpStatus.OK);
     }
 
